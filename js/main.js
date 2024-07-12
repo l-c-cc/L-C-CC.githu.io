@@ -895,7 +895,7 @@ document.addEventListener('visibilitychange', function () {
     }
 });
 // 注意：live2d_path 参数应使用绝对路径
-const live2d_path = "https://l-c-cc.github.io/live2d-widget/";  //xxx.xx 改成你网站的域名
+const live2d_path = "https://github.com/l-c-cc/live2d-widget/";  //xxx.xx 改成你网站的域名https://github.com/l-c-cc/tu/tree/d6ed5416b84db381f7af4bd8e96a302572ec13c7/live2d-widget
 //const live2d_path = "/live2d-widget/";
 
 // 封装异步加载资源的方法
